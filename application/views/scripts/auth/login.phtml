@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0024)http://l1.vaigot.com.br/ -->
+<html xml:lang="pt-br" lang="pt-br" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <title>RedeCNT</title>
+<link href="<?php echo $this->css_file;?>" media="screen" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div id="login">
+<div id="login-form">
+<h1><?php echo $this->escape($this->title); ?></h1>
+<?php if(!empty($this->message)) :?>
+<div id="message">
+<?php echo $this->escape($this->message);?>
+</div>
+<?php endif; ?>
+<?php
+echo $this->form;
+?>
+
+<a href="/Autenticacao/esqueci">esqueci minha senha</a>
+
+</div>
+</div>
+</body>
+</html>
+
