@@ -1,6 +1,7 @@
 DELIMITER $$
-DROP FUNCTION IF EXISTS `humansize_size`$$
-DETERMINISTIC: CREATE FUNCTION `humansize_size` (ibytes bigint) RETURNS text DETERMINISTIC
+DROP FUNCTION IF EXISTS `humansize_size` $$
+CREATE FUNCTION `humansize_size` (ibytes bigint) 
+RETURNS text
 BEGIN
  if ibytes <= 1000 then
    return concat(ibytes, ' B');

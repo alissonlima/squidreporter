@@ -90,15 +90,13 @@ class Relatorio_Model_FiltroData
  #             $sql.= "SUM(1) AS pags, ";
                $sql.= "TIME_FORMAT(date_time,'%h:%m:%s') AS Time, ";
                $sql.= "DATE_FORMAT(date_time,'%d %b') AS Data, ";
-               $sql.= "SUM(reply_size) / (1024 * 1024) AS 'Trafico MB' ";
+               $sql.= "humansize_size(SUM(reply_size)) AS 'Trafico' ";
                $sql.= "FROM access_log AS log ";
                #$sql.= "WHERE ";
                $sql.= "WHERE domain_of_url(`request_url`) = '{$detailed}' "; 
 	       $sql.= "AND username = '{$username}' ";                             
 	       $sql.= "AND date_time BETWEEN '{$date_begin}' AND '{$date_end}' ";                             
                $sql.= "GROUP BY Time ";
-               
-              
 
                $grid = new Application_Model_Grid();
 	       echo $grid->MontarGrade($sql);
