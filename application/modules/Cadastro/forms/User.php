@@ -51,7 +51,13 @@ class Cadastro_Form_User extends Zend_Form
 					'filters'    => array('StringTrim')
 					));
 
-   
+		$dos = array('user' => 'usuário', 'admin' => 'administrador'); 
+		$this->addElement('select', 'role', array(
+					'label'      => 'Tipo:',
+					'required'   => true,
+					'multiOptions'     => $dos,
+					'filters'    => array('StringTrim')
+					));
 
 
 		$this->addElement('submit', 'submit', array(
