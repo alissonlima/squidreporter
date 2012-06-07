@@ -1,0 +1,81 @@
+<script>
+
+function getReport(year, month, begin, end)
+{
+	var url = '/Relatorio/Ajax/report/year/' + year + '/month/' + month + '/begin/' + begin + '/end/' + end;
+	jQuery.ajax({
+	  url: url,
+	}).done(function(data) { 
+	  jQuery('#report').html(data);
+	});	
+
+}
+
+function getMonth(year)
+{
+	var url = '/Relatorio/Ajax/mes/ano/' + year;
+        var buffer = '<option value="">escolha um mes</option>\n';
+	jQuery.getJSON(url, function(data) {
+		jQuery.each(data, function(key, val) {
+        		buffer += '<option value="' + key + '">' + val + '</option>\n';
+		});
+		jQuery('#date_month').html(buffer);
+	});
+}
+
+function getDays(month)
+{
+	var year = jQuery('#date_year').val();
+	alert(month + ' = > ' + year);
+	
+        var buffer = '<option value="">escolha um dia para início</option>\n';
+	var url = '/Relatorio/Ajax/inicio/ano/' + year + '/mes/' + month;
+	jQuery.getJSON(url, function(data) {
+		jQuery.each(data, function(key, val) {
+        		buffer += '<option value="' + key + '">' + val + '</option>\n';
+		});
+		jQuery('#date_begin').html(buffer);
+	});
+
+        buffer = '<option value="">escolha um dia para término</option>\n';
+	var url = '/Relatorio/Ajax/termino/ano/' + year + '/mes/' + month;
+	jQuery.getJSON(url, function(data) {
+		jQuery.each(data, function(key, val) {
+        		buffer += '<option value="' + key + '">' + val + '</option>\n';
+		});
+		jQuery('#date_end').html(buffer);
+	});
+
+}
+
+jQuery(document).ready(function(){
+   // Your code here
+
+	jQuery('#date_year').change( function() {
+		getMonth(jQuery(this).val());
+	});
+
+	jQuery('#date_month').change( function() {
+		getDays(jQuery(this).val());
+	});
+
+	jQuery('#submit').click( function() {
+		//getDays(jQuery(this).val());
+		var year = jQuery('#date_year').val();
+		var month = jQuery('#date_month').val();
+		var begin = jQuery('#date_begin').val();
+		var end = jQuery('#date_end').val();
+
+		getReport(year, month, begin, end);
+	});
+
+
+
+});
+
+
+</script>
+<?php
+echo $this->form;
+?>
+<div id="report"></div>

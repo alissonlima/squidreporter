@@ -21,8 +21,10 @@ class Relatorio_Form_Filtro extends Zend_Form
 
                 
                 $do = new Relatorio_Model_DbTable_Filtro();
-                $dos = $do->getMonth();
+#                $dos = $do->getMonth();
+		$dos = array();
                 $dos = array('0'=>'Selecione o mes') + $dos;
+
                 $this->addElement('select', 'date_month', array(
                 #$this->addElement('radio', 'id_group', array(
                                         'label'      => 'mes',
@@ -34,6 +36,7 @@ class Relatorio_Form_Filtro extends Zend_Form
 	
 		$do = new Relatorio_Model_DbTable_Filtro();
 		$dos = $do->getDiaInicio();
+		$dos = array();
 		$dos = array('0'=>'Selecione um data') + $dos;
 		$this->addElement('select', 'date_begin', array(
 		#$this->addElement('radio', 'id_group', array(
@@ -44,6 +47,7 @@ class Relatorio_Form_Filtro extends Zend_Form
 					));
 
 		$dos = $do->getDiaTermino();
+		$dos = array();
 		$dos = array('0'=>'Selecione um data') + $dos;
 		$this->addElement('select', 'date_end', array(
 		#$this->addElement('radio', 'id_group', array(
@@ -54,7 +58,8 @@ class Relatorio_Form_Filtro extends Zend_Form
 					));
 
 
-		$this->addElement('submit', 'submit', array(
+		#$this->addElement('submit', 'submit', array(
+		$this->addElement('button', 'submit', array(
 					'ignore'   => true,
 					'label'    => 'enviar',
 					'class'     => 'botao_salvar'

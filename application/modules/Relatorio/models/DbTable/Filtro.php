@@ -29,7 +29,7 @@ class Relatorio_Model_DbTable_Filtro extends Zend_Db_Table_Abstract
         function getYear()
         {
                 $sql  = "SELECT ";
-                $sql .= "DATE_FORMAT(date_time, '%Y- 00:00:00') AS valor, ";
+                $sql .= "DATE_FORMAT(date_time, '%Y') AS valor, ";
                 $sql .= "DATE_FORMAT(date_time, '%Y') AS legenda ";
                 $sql .= "FROM access_log ";
                 $sql .= "GROUP BY valor ORDER BY valor ASC";
@@ -76,8 +76,8 @@ class Relatorio_Model_DbTable_Filtro extends Zend_Db_Table_Abstract
 	function getDiaInicio()
 	{
 		$sql  = "SELECT ";
-		$sql .= "DATE_FORMAT(date_time, '%Y-%m-%d 00:00:00') AS valor, "; 
-		$sql .= "DATE_FORMAT(date_time, '%d-%m-%Y') AS legenda "; 
+		$sql .= "DATE_FORMAT(date_time, '%d') AS valor, "; 
+		$sql .= "DATE_FORMAT(date_time, '%d') AS legenda "; 
 		$sql .= "FROM access_log ";
 		$sql .= "GROUP BY valor ORDER BY valor ASC";
                 $db = Zend_Db_Table::getDefaultAdapter();
@@ -98,8 +98,8 @@ class Relatorio_Model_DbTable_Filtro extends Zend_Db_Table_Abstract
 	function getDiaTermino()
 	{
 		$sql  = "SELECT ";
-		$sql .= "DATE_FORMAT(date_time, '%Y-%m-%d 23:59:59') AS valor, "; 
-		$sql .= "DATE_FORMAT(date_time, '%d-%m-%Y') AS legenda "; 
+		$sql .= "DATE_FORMAT(date_time, '%d') AS valor, "; 
+		$sql .= "DATE_FORMAT(date_time, '%d') AS legenda "; 
 		$sql .= "FROM access_log ";
 		$sql .= "GROUP BY valor ORDER BY valor ASC";
                 $db = Zend_Db_Table::getDefaultAdapter();
