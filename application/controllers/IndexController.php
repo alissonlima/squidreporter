@@ -7,7 +7,7 @@ class IndexController extends Zend_Controller_Action
 	{
 		$role = 'user';
 		$actions = array('index');
-		$this->_helper->_aclRedeCNT->allow($role, $actions);
+		$this->_helper->_aclReporter->allow($role, $actions);
 
 		$this->_logger = Zend_Registry::get('logger');
 		$this->_auth = Zend_Auth::getInstance()->getIdentity();

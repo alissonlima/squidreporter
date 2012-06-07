@@ -14,7 +14,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
 
 		$this->_auth = Zend_Auth::getInstance();
-		$this->_acl = new RedeCNT_Acl_RedeCNTAcl();
+		$this->_acl = new Reporter_Acl_ReporterAcl();
 
 		return $autoloader;
 	}
@@ -84,7 +84,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		$this->_view->headLink()->appendStylesheet("/css/global.css");
 
 		$this->_view->addHelperPath(APPLICATION_PATH . '/views/helpers', "Application_View_Helper");
-		$this->_view->addHelperPath('RedeCNT/View/Helper/', 'RedeCNT_View_Helper');
+		$this->_view->addHelperPath('Reporter/View/Helper/', 'Reporter_View_Helper');
 
 
 	}
@@ -92,7 +92,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 	protected function _initActionHelpers()
 	{
 		Zend_Controller_Action_HelperBroker::addPath(APPLICATION_PATH."/controllers/helpers");
-		Zend_Controller_Action_HelperBroker::addPrefix('RedeCNT_Controller_Action_Helper');
+		Zend_Controller_Action_HelperBroker::addPrefix('Reporter_Controller_Action_Helper');
 	}
 
 }
