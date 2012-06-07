@@ -73,9 +73,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		$this->_view->headScript()->appendFile('/js/lib/superfish/hoverIntent.js', 'text/javascript');
 		$this->_view->headScript()->appendFile('/js/lib/superfish/superfish.js', 'text/javascript');
 		$this->_view->headScript()->appendFile('/js/lib/jhtmlarea/scripts/jHtmlArea-0.7.0.js', 'text/javascript');
+		$this->_view->headScript()->appendFile('https://www.google.com/jsapi', 'text/javascript');
 
 
 		$this->_view->headScript()->appendFile('/js/main.js', 'text/javascript');
+		$this->_view->headScript()->appendFile('/js/graphs.js', 'text/javascript');
 
 		$this->_view->headLink()->appendStylesheet("/js/lib/css/ui-lightness/jquery-ui-1.8.16.custom.css");
 		$this->_view->headLink()->appendStylesheet("/js/lib/jhtmlarea/style/jHtmlArea.css");

@@ -206,3 +206,10 @@ textarea {
 {
 	color: red;
 }
+
+#layout .col
+{
+        width: 33%;
+        float: left;
+}
+

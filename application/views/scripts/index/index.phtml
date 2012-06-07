@@ -1,79 +1,17 @@
 <h1>Mais acessados</h1>
 
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script type="text/javascript">
-
-function load_graph_slices(element_id,title, rows)
-{
- // Load the Visualization API and the piechart package.
-      google.load('visualization', '1.0', {'packages':['corechart']});
-
-      // Set a callback to run when the Google Visualization API is loaded.
-      google.setOnLoadCallback(drawChart);
-
-      // Callback that creates and populates a data table,
-      // instantiates the pie chart, passes in the data and
-      // draws it.
-      function drawChart() {
-
-        // Create the data table.
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Topping');
-        data.addColumn('number', 'Slices');
-        data.addRows(rows);
-
-        // Set chart options
-        var options = {'title': title,
-                       'width':400,
-                       'height':300};
-
-        // Instantiate and draw our chart, passing in some options.
-        var chart = new google.visualization.PieChart(document.getElementById(element_id));
-        chart.draw(data, options);
-      }
-}
-
-rows_24 = [
-          ['Google', 3],
-          ['Facebook', 1],
-          ['Playboy', 1],
-          ['Linux.com', 1],
-          ['OpenBSD.org', 2]
-        ]
-
-rows_week = [
-          ['FaleComEla', 3],
-          ['Microsoft', 2],
-          ['Debian', 1],
-        ]
-
-rows_month = [
-          ['FaleComEla', 1],
-          ['Microsoft', 2],
-          ['Debian', 4],
-        ]
-
-
-load_graph_slices('chart_div_24','Sites mais acesados nas ultimas 24hs', rows_24);
-load_graph_slices('chart_div_week','Sites mais acesados na ultima semana', rows_week);
-load_graph_slices('chart_div_month','Sites mais acesados no ultimo mes', rows_month);
-
-</script>
-<style>
-#layout
-{
-
-}
-
-#layout .col
-{
-	width: 33%;
-	float: left;
-}
-
-</style>
 <div id="layout">
-<div class="col"><div id="chart_div_24"></div></div>
-<div class="col"><div id="chart_div_week"></div></div>
-<div class="col"><div id="chart_div_month"></div></div>
+<?php
+$sql = "SELECT username AS name, SUM(1) AS value FROM access_log GROUP BY username ORDER BY value DESC";
+
+$g = new Reporter_Graph();
+echo $g->Montar($sql, 'Usuários com mais acessos','user_access');
+?>
+
+<?php
+$sql = "SELECT domain_of_url(`request_url`) AS name, SUM(1) AS value FROM `access_log` WHERE mime_type = 'text/html' GROUP BY name ORDER BY value DESC LIMIT 4";
+
+$g = new Reporter_Graph();
+echo $g->Montar($sql, 'Sites mais acessados','site_access');
+?>
 </div>
