@@ -1,0 +1,14 @@
+*.log
+*.swp
+*.swo
+*.swl
+*.swn
+*.swm
+public/models/*
+public/images/banners/*
+sandbox/*
+sandbox/
+public/images/banners/ele/*
+public/images/banners/ela/*
+public/images/magazine/ele/*
+public/images/magazine/ela/*

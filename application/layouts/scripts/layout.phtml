@@ -13,6 +13,13 @@ echo $this->headLink();
 </head>
 <body>
 <header>
+<div id="user-area">
+<?php
+$identity = Zend_Auth::getInstance()->getIdentity();
+echo "<strong>{$identity->fullname}</strong> :: ";
+echo "<a href=\"/Auth/logout\">sair</a>";
+?>
+</div>
 	<div id="header-logo">
 		<b>Squid Logs</b>
 	</div>
@@ -23,6 +30,9 @@ echo $this->headLink();
 </div>
 </header>
 <div id="content">
+
+
+
 
 <div class="breadcrumbs">
 <?php

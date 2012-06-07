@@ -186,3 +186,23 @@ textarea {
 	background-color: white;
     	border: 1px solid #828282;
 }
+
+#user-area
+{
+	float: right;
+	padding-right: 15px;
+	padding-top: 4px;
+	color: white;
+}
+
+#user-area a
+{
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+#user-area a:hover
+{
+	color: red;
+}

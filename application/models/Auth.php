@@ -32,7 +32,8 @@ class Application_Model_Auth
 
 		$db = Zend_Db_Table::getDefaultAdapter();
 		$authAdapter = new Zend_Auth_Adapter_DbTable($db);
-		$authAdapter->setTableName($this->_dbTableName)->setIdentityColumn($this->_dbColumnLogin)->setCredentialColumn($this->_dbColumnPassword)->setCredentialTreatment('MD5(?)');
+		#$authAdapter->setTableName($this->_dbTableName)->setIdentityColumn($this->_dbColumnLogin)->setCredentialColumn($this->_dbColumnPassword)->setCredentialTreatment('MD5(?)');
+		$authAdapter->setTableName($this->_dbTableName)->setIdentityColumn($this->_dbColumnLogin)->setCredentialColumn($this->_dbColumnPassword);
 
 		$this->_log("Autenticando: {$user} x {$password}");
 		$authAdapter->setIdentity($user);
