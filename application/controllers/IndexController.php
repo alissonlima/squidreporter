@@ -5,7 +5,7 @@ class IndexController extends Zend_Controller_Action
 
 	public function init()
 	{
-		$role = 'user';
+		$role = 'admin';
 		$actions = array('index');
 		$this->_helper->_aclReporter->allow($role, $actions);
 

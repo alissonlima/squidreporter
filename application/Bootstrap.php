@@ -14,7 +14,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
 
 		$this->_auth = Zend_Auth::getInstance();
-		$this->_acl = new Reporter_Acl_ReporterAcl();
+#		$this->_acl = new Reporter_Acl_ReporterAcl();
 
 		return $autoloader;
 	}
