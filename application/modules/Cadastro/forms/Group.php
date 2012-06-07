@@ -25,11 +25,6 @@ class Cadastro_Form_Group extends Zend_Form
 					));
 
 
-		
-
-
-
-
 		$this->addElement('submit', 'submit', array(
 					'ignore'   => true,
 					'label'    => 'enviar',

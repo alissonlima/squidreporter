@@ -37,7 +37,8 @@ class Cadastro_Form_User extends Zend_Form
 					'filters'    => array('StringTrim'),
 					'validators'    => array(new Zend_Validate_EmailAddress())
 					));
-                 
+
+                                
 
 		$do = new Cadastro_Model_DbTable_Group();
 		$dos = $do->ListIdName();
@@ -50,7 +51,7 @@ class Cadastro_Form_User extends Zend_Form
 					'filters'    => array('StringTrim')
 					));
 
-
+   
 
 
 		$this->addElement('submit', 'submit', array(

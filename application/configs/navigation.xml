@@ -62,10 +62,17 @@
     </schedule-2>
 <!-- Ajuda -->
     <schedule-3>
+      <label>Ferramentas administrativas</label>
+      <module>Sandbox</module>
+      <controller>index</controller>
+      <action>index</action>
+    </schedule-3>
+<!-- Ajuda -->
+    <schedule-4>
       <label>Help</label>
       <module>Relatorio1</module>
       <controller>index</controller>
       <action>index</action>
-    </schedule-3>
+    </schedule-4>
   </nav>
 </configdata>
